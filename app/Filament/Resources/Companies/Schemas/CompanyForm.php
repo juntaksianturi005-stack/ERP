@@ -24,19 +24,19 @@ class CompanyForm
                 ->columnSpan(3)
                 ->schema([
                     TextInput::make('name')
-                    ->columnSpan(1)
+                    ->columnSpanFull()
                         ->required(),
                     TextInput::make('address')
-                    ->columnSpan(1)
+                    ->columnSpanFull()
                         ->required(),
                     TextInput::make('email')
                         ->label('Email address')
-                    ->columnSpanFull()
+                    ->columnSpan(1)
                         ->email()
                         ->required(),
                     TextInput::make('phone-number')
                     ->label('Phone number')
-                    ->columnSpanFull()
+                    ->columnSpan(1)
                         ->tel()
                         ->required(),
                 ]),
@@ -46,6 +46,7 @@ class CompanyForm
                 ->columns()
                 ->schema([
                     FileUpload::make('logo')
+                    ->columnSpanFull()
                         ->image()
                         ->disk('public')
                         ->directory('logos')
